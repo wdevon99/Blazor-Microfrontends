@@ -7,8 +7,16 @@
     <p class="heading">Dashboard</p>
     <p class="sub-heading">This is a demo dashboard composed of multiple micro-frontends</p>
 
+    <div class="tech-stack-tags">
+        <img src="https://img.shields.io/badge/Blazor-563D7C?style=for-the-badge&logoColor=white&logo=blazor&logoColor=white" alt="Blazor" />
+        <img src="https://img.shields.io/badge/Piral-4EA94B?style=for-the-badge&logoColor=white" alt="Piral" />
+        <img src="https://img.shields.io/badge/C_Sharp-009bde?style=for-the-badge&logoColor=white&logo=c#&logoColor=white" alt="C#" />
+        <img src="https://img.shields.io/badge/.Net-cfa900?style=for-the-badge&logoColor=white&logo=dotnet&logoColor=white" alt=".Net" />
+    </div>
+
     <MfComponent Name="microfrontend.one" />
     <MfComponent Name="microfrontend.two" />
+    <MfComponent Name="microfrontend.three" />
 </div>
 
 
@@ -18,13 +26,20 @@
         padding: 5rem 18%;
     }
     .heading {
-        font-size: 1.6rem;
+        font-size: 2rem;
         color: #000;
-        margin: 0px;
+        margin: 0px 0px 15px 0px;
+        font-weight: bold;
     }
     .sub-heading {
         font-size: 1rem;
         color: #666;
-        margin: 10px 0px 30px 0px;
+        margin: 10px 0px 20px 0px;
+    }
+    .tech-stack-tags {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        margin-bottom: 50px;
     }
 </style>

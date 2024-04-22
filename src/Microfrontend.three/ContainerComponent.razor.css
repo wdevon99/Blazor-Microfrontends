@@ -1,8 +1,12 @@
 ﻿.container {
     text-align: center;
-    border: 2px dashed #333;
-    padding: 3em 2rem;
-    margin: 2em 0;
+    border: 1.5px solid #f6f6f6;
+    padding: 2em;
+    margin: 2rem 0;
+    -webkit-box-shadow: 0px 0px 28px 14px rgba(230,230,230,0.22);
+    -moz-box-shadow: 0px 0px 28px 14px rgba(230,230,230,0.22);
+    box-shadow: 0px 0px 28px 14px rgba(230,230,230,0.22);
+    border-radius: 10px;
 }
 
 .title {
