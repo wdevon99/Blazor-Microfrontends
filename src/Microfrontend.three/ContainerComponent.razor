@@ -1,0 +1,18 @@
+﻿@using System.Reflection;
+
+<div class="container">
+    <h2 class="title">Featured Ads</h2>
+    <p class="subtitle">These are the featured ads</p>
+    <p>TODO</p>
+    <p class="version">Micro-Frontend Three (Version: @version)</p>
+</div>
+
+@code{
+    private string version = "1.0.0";
+
+    protected override void OnInitialized()
+    {
+        var versionString = Assembly.GetExecutingAssembly()?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? "1.0.0";
+        version = versionString.Substring(0, versionString.IndexOf('+'));
+    }
+}

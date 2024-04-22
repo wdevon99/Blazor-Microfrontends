@@ -1,0 +1,31 @@
+﻿@using System.Reflection;
+
+<div class="container">
+    <h2 class="title">Counter</h2>
+    <p class="subtitle">Click "+" to increase the count and "-" to decrease count:</p>
+    <div class="count">@currentCount</div>
+    <button class="btn-primary" @onclick="DecreaseCount">-</button>
+    <button class="btn" @onclick="IncreaseCount">+</button>
+    <p class="version">Micro-Frontend One (Version: @version)</p>
+</div>
+
+@code{
+    private string version = "1.0.0";
+    private int currentCount = 0;
+
+    private void IncreaseCount()
+    {
+        currentCount++;
+    }
+
+    private void DecreaseCount()
+    {
+        currentCount--;
+    }
+
+    protected override void OnInitialized()
+    {
+        var versionString = Assembly.GetExecutingAssembly()?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? "1.0.0";
+        version = versionString.Substring(0, versionString.IndexOf('+'));
+    }
+}

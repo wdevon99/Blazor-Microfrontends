@@ -1,0 +1,85 @@
+﻿@using System.Reflection;
+@using models;
+@inject HttpClient httpClient
+
+<div class="container">
+    <h2 class="title">Today's Weather</h2>
+    <p class="subtitle">Today's weather conditions can be seen below</p>
+
+    <div class="card-container">
+        @if (weatherList.Count() == 0)
+        {
+            <p class="loading-text">Loading...</p>
+        }
+        @foreach (var weather in weatherList)
+        {
+            <div class="weather-card">
+                <div class="weather-icon">
+                    <img src="@GetWeatherIcon(weather?.Weather)">
+                </div>
+                <div class="weather-info">
+                    <h2 class="city">@weather?.Name</h2>
+                    <p class="temperature">@Math.Round(weather?.Main?.Temp ?? 0, 1)°C</p>
+                    <p class="description">@GetFormatedDescription(weather?.Weather)</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <p class="version">Micro-Frontend Two (Version: @version)</p>
+</div>
+
+@code{
+    private string version = "1.0.0";
+    List<WeatherData?> weatherList = new List<WeatherData?>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var versionString = Assembly.GetExecutingAssembly()?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? "1.0.0";
+        version = versionString.Substring(0, versionString.IndexOf('+'));
+
+        var weatherCity1 = await GetWeatherData("Colombo");
+        var weatherCity2 = await GetWeatherData("Tokyo");
+        var weatherCity3 = await GetWeatherData("Bergen");
+        var weatherCity4 = await GetWeatherData("London");
+
+        weatherList.Add(weatherCity1);
+        weatherList.Add(weatherCity2);
+        weatherList.Add(weatherCity3);
+        weatherList.Add(weatherCity4);
+    }
+
+    private async Task<WeatherData?> GetWeatherData(string city)
+    {
+        var API_KEY = "<<ADD API KEY HERE>>";
+        var url = $"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric";
+        var response = await httpClient.GetAsync(url);
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadFromJsonAsync<WeatherData>();
+        }
+
+        return null;
+    }
+
+    private string GetWeatherIcon(Weather[]? weather)
+    {
+        var type = weather?.Count() > 0 ? weather[0].Main : "None";
+
+        switch (type)
+        {
+            case "Rain":
+                return "/assets/Microfrontend.two/rain.png";
+            case "Clouds":
+                return "/assets/Microfrontend.two/thunder.png";
+            default:
+                return "/assets/Microfrontend.two/sunny.png";
+        }
+    }
+
+    private string GetFormatedDescription(Weather[]? weather)
+    {
+        var desc = weather?.Count() > 0 ? weather[0].Description ?? "None" : "None";
+        return desc[0].ToString().ToUpperInvariant() + desc[1..];
+    }
+}

@@ -1,0 +1,30 @@
+﻿@page "/"
+@using Piral.Blazor.Shared
+
+<PageTitle>Dashboard</PageTitle>
+
+<div class="container">
+    <p class="heading">Dashboard</p>
+    <p class="sub-heading">This is a demo dashboard composed of multiple micro-frontends</p>
+
+    <MfComponent Name="microfrontend.one" />
+    <MfComponent Name="microfrontend.two" />
+</div>
+
+
+<style>
+    .container {
+        font-family: Arial, sans-serif;
+        padding: 5rem 18%;
+    }
+    .heading {
+        font-size: 1.6rem;
+        color: #000;
+        margin: 0px;
+    }
+    .sub-heading {
+        font-size: 1rem;
+        color: #666;
+        margin: 10px 0px 30px 0px;
+    }
+</style>
