@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microfrontend.one", "src\Mi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microfrontend.two", "src\Microfrontend.two\Microfrontend.two.csproj", "{932096BD-9814-4E6D-A976-D37BBC79B532}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microfrontend.three", "src\Microfrontend.three\Microfrontend.three.csproj", "{5DA36EBE-529C-4490-A2D8-F4E8722BE105}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{932096BD-9814-4E6D-A976-D37BBC79B532}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{932096BD-9814-4E6D-A976-D37BBC79B532}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{932096BD-9814-4E6D-A976-D37BBC79B532}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5DA36EBE-529C-4490-A2D8-F4E8722BE105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DA36EBE-529C-4490-A2D8-F4E8722BE105}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DA36EBE-529C-4490-A2D8-F4E8722BE105}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DA36EBE-529C-4490-A2D8-F4E8722BE105}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
